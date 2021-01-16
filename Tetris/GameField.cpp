@@ -22,4 +22,11 @@ void GameField::Draw(Canvas& canvas)
 	canvas.SetChar(m_Width - 1, 0, 0x2557);
 	canvas.SetChar(0, m_Height - 1, 0x255A);
 	canvas.SetChar(m_Width - 1, m_Height - 1, 0x255D);
+	for (int y = 1; y < m_Height - 1; y++)
+	{
+		for (int x = 1; x < m_Width - 1; x++)
+		{
+			canvas.SetChar(x, y, 0x0387);
+		}
+	}
 }
