@@ -48,10 +48,10 @@ void Canvas::Resize(int height, int width)
 	COORD windowBufSize = { static_cast<SHORT>(width), static_cast<SHORT>(height) };
 
 	if (!SetConsoleScreenBufferSize(m_ConsoleOut, windowBufSize))
-		cout << "SetConsoleScreenBufferSize failed with error " << GetLastError() << std::endl;
+		cout << "SetConsoleScreenBufferSize failed with error " << GetLastError() << endl;
 
 	if (!SetConsoleWindowInfo(m_ConsoleOut, TRUE, &windowSize))
-		cout << "SetConsoleWindowInfo failed with error " << GetLastError() << std::endl;
+		cout << "SetConsoleWindowInfo failed with error " << GetLastError() << endl;
 
 	if (m_Buffer) delete[] m_Buffer;
 

@@ -23,10 +23,10 @@ void Game::Run()
 		{
 			OnKeyPressed(_getch());
 			if(!FlushConsoleInputBuffer(m_ConsoleIn))
-				cout << "FlushConsoleInputBuffer failed with error " << GetLastError() << std::endl;
+				cout << "FlushConsoleInputBuffer failed with error " << GetLastError() << endl;
 		}
 
-		Update(static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - last).count()));
+		Update(static_cast<double>(chrono::duration_cast<chrono::milliseconds>(Clock::now() - last).count()));
 		last = Clock::now();
 
 		Sleep(1);
