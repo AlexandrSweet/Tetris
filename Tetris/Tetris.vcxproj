@@ -142,6 +142,7 @@
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameField.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tetris.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameField.h" />
     <ClInclude Include="Tetris.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
