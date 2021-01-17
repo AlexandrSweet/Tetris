@@ -2,12 +2,12 @@
 #include <vector>
 #include "Canvas.h"
 
-using namespace std;
 
 struct Point
 {
 	Point(int _x=0, int _y=0) : x(_x), y(_y) {}
-	int x, y;
+	int x;
+	int y;
 };
 class Figure
 {
@@ -17,11 +17,12 @@ public:
 	void Draw(Canvas& canvas);
 	void MoveR();
 	void MoveL();
+	const std::vector<Point>& GetBody() const;
+	Point GetPosition() const;
 
 private:
 	Point m_Position;
 	double m_TimeFromLastUpdate = 0;
-	vector<Point> m_Body;
-
+	std::vector<Point> m_Body;
 };
 

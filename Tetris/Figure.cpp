@@ -31,3 +31,13 @@ void Figure::MoveL()
 {
 	m_Position.x--;
 }
+
+const std::vector<Point>& Figure::GetBody() const
+{
+	return m_Body;
+}
+
+Point Figure::GetPosition() const
+{
+	return m_Position;
+}

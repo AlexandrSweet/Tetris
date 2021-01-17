@@ -1,4 +1,5 @@
 #include "GameField.h"
+#include "Figure.h"
 
 void GameField::Resize(int width, int height)
 {
@@ -29,4 +30,21 @@ void GameField::Draw(Canvas& canvas)
 			canvas.SetChar(x, y, 0x0387);
 		}
 	}
+}
+
+bool GameField::HasCollision(const Figure& figure)
+{
+	Point position = figure.GetPosition();
+	for (const Point& point : figure.GetBody())
+	{
+		if (point.x + position.x < 1 || point.x + position.x > m_Width - 2)
+		{
+			return true;
+		}
+		if (point.y + position.y < 1 || point.y + position.y > m_Height - 2)
+		{
+			return true;
+		}
+	}
+	return false;
 }

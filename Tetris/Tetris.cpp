@@ -22,6 +22,10 @@ void Tetris::OnKeyPressed(int btnCode)
 void Tetris::Update(double dt)
 {
 	m_Figure.Update(dt);
+	if (m_GameField.HasCollision(m_Figure))
+	{
+		m_Figure = Point(5, 1);
+	}
 	m_Canvas.Clear();
 	m_GameField.Draw(m_Canvas);
 	m_Figure.Draw(m_Canvas);
