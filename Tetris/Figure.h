@@ -19,10 +19,15 @@ public:
 	void MoveL();
 	const std::vector<Point>& GetBody() const;
 	Point GetPosition() const;
+	void Boost();
+	void Backup();
+	void Restore();
 
 private:
 	Point m_Position;
+	Point m_PositionBackup;
 	double m_TimeFromLastUpdate = 0;
+	double m_TimeForUpdate = 500;
 	std::vector<Point> m_Body;
 };
 

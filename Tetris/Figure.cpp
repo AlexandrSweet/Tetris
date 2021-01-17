@@ -9,7 +9,7 @@ Figure::Figure(Point position)
 void Figure::Update(double dt)
 {
 	m_TimeFromLastUpdate += dt;
-	if (m_TimeFromLastUpdate <= 500) return;
+	if (m_TimeFromLastUpdate <= m_TimeForUpdate) return;
 	m_TimeFromLastUpdate = 0;
 	++m_Position.y;
 }
@@ -40,4 +40,21 @@ const std::vector<Point>& Figure::GetBody() const
 Point Figure::GetPosition() const
 {
 	return m_Position;
+}
+
+void Figure::Boost()
+{
+	m_TimeForUpdate = 50;
+}
+
+
+
+void Figure::Backup()
+{
+	m_PositionBackup = m_Position;
+}
+
+void Figure::Restore()
+{
+	m_Position = m_PositionBackup;
 }
