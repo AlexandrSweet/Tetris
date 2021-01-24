@@ -12,9 +12,13 @@ public:
 	void Update(double dt) override;
 	bool End() override;
 private:
+	void DrawScore(Canvas& canvas);
+
 	GameField m_GameField;
 	Canvas m_Canvas;
 	Figure m_Figure;
+	Figure m_NextFigure;
+	size_t m_Score = 0u;
 	bool m_End = false;
 };
 

@@ -20,6 +20,7 @@ public:
 	void Rotate();
 	const std::vector<Point>& GetBody() const;
 	Point GetPosition() const;
+	void SetPosition(Point position);
 	void Boost();
 	void Backup();
 	void Restore();

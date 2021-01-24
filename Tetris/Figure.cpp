@@ -68,6 +68,11 @@ Point Figure::GetPosition() const
 	return m_Position;
 }
 
+void Figure::SetPosition(Point position)
+{
+	m_Position = position;
+}
+
 void Figure::Boost()
 {
 	m_TimeForUpdate = 50;

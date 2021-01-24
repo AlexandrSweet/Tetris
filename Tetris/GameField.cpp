@@ -54,8 +54,9 @@ bool GameField::HasCollision(const Figure& figure)
 	return false;
 }
 
-void GameField::Merge(const Figure& figure)
+size_t GameField::Merge(const Figure& figure)
 {
+	size_t score = 0;
 	Point position = figure.GetPosition();
 	for (const Point& point : figure.GetBody())
 	{
@@ -70,6 +71,7 @@ void GameField::Merge(const Figure& figure)
 		}
 		if (fool)
 		{
+			score = 4;
 			for (size_t j = i; j > 0; --j)
 			{
 				m_Field[j] = m_Field[j - 1];
@@ -77,4 +79,5 @@ void GameField::Merge(const Figure& figure)
 			m_Field[0] = std::vector<wchar_t>(m_Width - 2, 0x0387);
 		}
 	}
+	return score;
 }
