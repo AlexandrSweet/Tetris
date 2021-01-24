@@ -3,7 +3,10 @@
 Figure::Figure(Point position)
 {
 	m_Position = position;
-	m_Body = { Point(0, 0), Point(1, 0), Point(2, 0),Point(3, 0) };
+	m_Body = { 
+		{ Point(0, 0), Point(1, 0), Point(2, 0),Point(3, 0) },
+		{ Point(0, 0), Point(0, 1), Point(0, 2),Point(0, 3) }
+	};
 }
 
 void Figure::Update(double dt)
@@ -16,7 +19,7 @@ void Figure::Update(double dt)
 
 void Figure::Draw(Canvas& canvas)
 {
-	for (const Point& point : m_Body)
+	for (const Point& point : m_Body[m_CurrentRotate])
 	{
 		canvas.SetChar(point.x + m_Position.x, point.y + m_Position.y, 0x25D8);
 	}
@@ -32,9 +35,18 @@ void Figure::MoveL()
 	m_Position.x--;
 }
 
+void Figure::Rotate()
+{
+	++m_CurrentRotate;
+	if (m_CurrentRotate >= m_Body.size())
+	{
+		m_CurrentRotate = 0;
+	}
+}
+
 const std::vector<Point>& Figure::GetBody() const
 {
-	return m_Body;
+	return m_Body[m_CurrentRotate];
 }
 
 Point Figure::GetPosition() const

@@ -10,6 +10,9 @@ void Tetris::OnKeyPressed(int btnCode)
 {
 	switch (btnCode)
 	{
+	case 32:
+		m_Figure.Rotate();
+		break;
 	case 75:
 		m_Figure.MoveL();
 		break;

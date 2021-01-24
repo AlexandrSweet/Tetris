@@ -17,6 +17,7 @@ public:
 	void Draw(Canvas& canvas);
 	void MoveR();
 	void MoveL();
+	void Rotate();
 	const std::vector<Point>& GetBody() const;
 	Point GetPosition() const;
 	void Boost();
@@ -28,6 +29,7 @@ private:
 	Point m_PositionBackup;
 	double m_TimeFromLastUpdate = 0;
 	double m_TimeForUpdate = 500;
-	std::vector<Point> m_Body;
+	std::vector<std::vector<Point>> m_Body;
+	size_t m_CurrentRotate = 0;
 };
 
