@@ -31,5 +31,6 @@ private:
 	double m_TimeForUpdate = 500;
 	std::vector<std::vector<Point>> m_Body;
 	size_t m_CurrentRotate = 0;
+	size_t m_CurrentRotateBackup = 0;
 };
 

@@ -1,12 +1,26 @@
 #include "Figure.h"
 
+std::vector<std::vector<Point>> Generate()
+{
+	switch (rand()%3)
+	{
+	case 0: return {
+		{ Point(0, 0), Point(1, 0), Point(2, 0),Point(3, 0) },
+		{ Point(1, 0), Point(1, 1), Point(1, 2),Point(1, 3) } };
+	case 1: return {
+		{ Point(0, 0), Point(1, 0), Point(1, 1),Point(0, 1) } };
+	case 2: return {
+	{ Point(0, 0), Point(1, 0), Point(2, 0),Point(1, 1) },
+	{ Point(1, 0), Point(1, 1), Point(1, 2),Point(0, 1) },
+	{ Point(0, 1), Point(1, 1), Point(2, 1),Point(1, 0) },
+	{ Point(0, 0), Point(0, 1), Point(0, 2),Point(1, 1) } };
+	}
+}
+
 Figure::Figure(Point position)
 {
 	m_Position = position;
-	m_Body = { 
-		{ Point(0, 0), Point(1, 0), Point(2, 0),Point(3, 0) },
-		{ Point(0, 0), Point(0, 1), Point(0, 2),Point(0, 3) }
-	};
+	m_Body = Generate();
 }
 
 void Figure::Update(double dt)
@@ -64,9 +78,11 @@ void Figure::Boost()
 void Figure::Backup()
 {
 	m_PositionBackup = m_Position;
+	m_CurrentRotateBackup = m_CurrentRotate;
 }
 
 void Figure::Restore()
 {
 	m_Position = m_PositionBackup;
+	m_CurrentRotate = m_CurrentRotateBackup;
 }

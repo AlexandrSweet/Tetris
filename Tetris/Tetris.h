@@ -15,5 +15,6 @@ private:
 	GameField m_GameField;
 	Canvas m_Canvas;
 	Figure m_Figure;
+	bool m_End = false;
 };
 

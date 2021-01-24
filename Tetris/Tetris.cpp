@@ -38,6 +38,10 @@ void Tetris::Update(double dt)
 		m_Figure.Restore();
 		m_GameField.Merge(m_Figure);
 		m_Figure = Point(5, 1);
+		if (m_GameField.HasCollision(m_Figure))
+		{
+			m_End = true; 
+		}
 	}
 	m_Canvas.Clear();
 	m_GameField.Draw(m_Canvas);
@@ -47,5 +51,5 @@ void Tetris::Update(double dt)
 
 bool Tetris::End()
 {
-	return false;
+	return m_End;
 }
